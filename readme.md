@@ -14,12 +14,16 @@
   Next and finally for now. Load and parse your book.
 
   ```js
-  var bookMeta = fb2.parse('/path/to/file.fb2');
+  fb2.parse('/path/to/file.fb2', function(error, bookMeta) {
+	// Do anything
+  });
   ```
   You can define file encoding. By default encoding defined as utf-8. Example,
 
   ```js
-  var bookMeta = fb2.parse('/path/to/file.fb2', 'cp1251');
+  var bookMeta = fb2.parse('/path/to/file.fb2', 'cp1251', function(error, bookMeta) {
+  	// Do anything
+  });
   ```
 
 ## Todo
