@@ -21,7 +21,7 @@
   You can define file encoding. By default encoding defined as utf-8. Example,
 
   ```js
-  var bookMeta = fb2.parse('/path/to/file.fb2', 'cp1251', function(error, bookMeta) {
+  fb2.parse('/path/to/file.fb2', 'cp1251', function(error, bookMeta) {
   	// Do anything
   });
   ```
