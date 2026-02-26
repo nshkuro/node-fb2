@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0" xmlns:l="http://www.w3.org/1999/xlink">
+  <description>
+    <title-info>
+      <genre>fiction</genre>
+      <author>
+        <first-name>John</first-name>
+        <last-name>Doe</last-name>
+      </author>
+      <book-title>Fiction Book</book-title>
+      <annotation>
+        <p>This is a test annotation.</p>
+      </annotation>
+      <date value="2011-07-18">18.07.2011</date>
+      <lang>en</lang>
+    </title-info>
+    <document-info>
+      <program-used>node-fb2 test</program-used>
+      <date value="2011-07-18">18.07.2011</date>
+      <id>test-book-id-123</id>
+      <version>1.0</version>
+    </document-info>
+    <publish-info/>
+  </description>
+  <body>
+    <title>
+      <p>John Doe</p>
+      <p>Fiction Book</p>
+    </title>
+    <section>
+      <title>
+        <p>Chapter 1</p>
+      </title>
+      <p>This is the first chapter of the book.</p>
+    </section>
+  </body>
+</FictionBook>
