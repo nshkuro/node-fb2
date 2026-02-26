@@ -1,10 +1,13 @@
 { "name": "node-fb2"
-, "version": "0.0.1"
+, "version": "0.0.2"
 , "author": "Nikolay Shkuro"
 , "description": "Tools for FunctionBook"
 , "homepage": "http://github.com/nshkuro/node-fb2"
-, "engines" : { "node" : ">=0.1.90" }
+, "engines" : { "node" : ">=18" }
 , "main": "./node-fb2"
+, "scripts": {
+    "test": "node test/parse.test.js"
+  }
 , "repository": {
       "type" : "git"
     , "url" : "git://github.com/nshkuro/node-fb2.git"
@@ -14,6 +17,6 @@
     , "url": "http://github.com/nshkuro/node-fb2/issues"
   }
 , "dependencies": {
-      "libxmljs": "*"
+      "fast-xml-parser": "^5.4.1"
   }
 }
