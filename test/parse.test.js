@@ -4,18 +4,35 @@ var fb2 = require('../node-fb2');
 
 var fixturePath = path.join(__dirname, 'fixtures', 'sample.fb2');
 
-var passed = 0;
-var failed = 0;
+var total = 0;
+var failures = [];
 
 function test(name, fn) {
+  total++;
   try {
     fn();
-    passed++;
     console.log('  OK: ' + name);
   } catch (err) {
-    failed++;
+    failures.push(name);
     console.log('  FAIL: ' + name);
     console.log('    ' + err.message);
+  }
+}
+
+function reportAndExit() {
+  var passed = total - failures.length;
+  console.log('\nResults: ' + passed + ' passed, ' + failures.length + ' failed');
+  if (failures.length > 0) {
+    process.exit(1);
+  }
+}
+
+var pending = 2;
+
+function done() {
+  pending--;
+  if (pending === 0) {
+    reportAndExit();
   }
 }
 
@@ -55,14 +72,9 @@ fb2.parse(fixturePath, function(err, info) {
     assert.strictEqual(info.id, 'test-book-id-123');
   });
 
-  console.log('\nResults: ' + passed + ' passed, ' + failed + ' failed');
-
-  if (failed > 0) {
-    process.exit(1);
-  }
+  done();
 });
 
-// Test with explicit encoding
 fb2.parse(fixturePath, 'utf-8', function(err, info) {
   if (err) {
     console.log('Parse with encoding error:', err);
@@ -73,4 +85,6 @@ fb2.parse(fixturePath, 'utf-8', function(err, info) {
     assert.strictEqual(info.firstName, 'John');
     assert.strictEqual(info.bookTitle, 'Fiction Book');
   });
+
+  done();
 });
